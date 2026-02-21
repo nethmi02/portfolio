@@ -63,24 +63,21 @@ export default function Contact() {
                             <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
                             <div className="space-y-6">
                                 <div className="flex items-start gap-4">
-                                    <div className="text-3xl">📧</div>
                                     <div>
                                         <h4 className="font-semibold text-white mb-1">Email</h4>
-                                        <p className="text-purple-400">your.email@example.com</p>
+                                        <p className="text-purple-400">sathruwanihapuarachchi7@gmail.com</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
-                                    <div className="text-3xl">📱</div>
                                     <div>
                                         <h4 className="font-semibold text-white mb-1">Phone</h4>
-                                        <p className="text-purple-400">+1 (234) 567-8900</p>
+                                        <p className="text-purple-400">0778022449</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
-                                    <div className="text-3xl">📍</div>
                                     <div>
                                         <h4 className="font-semibold text-white mb-1">Location</h4>
-                                        <p className="text-purple-400">City, Country</p>
+                                        <p className="text-purple-400">No 147, Beruwewa, Kuliyapitiya</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,14 +86,14 @@ export default function Contact() {
                         <div>
                             <h3 className="text-2xl font-bold mb-6 text-white">Follow Me</h3>
                             <div className="flex gap-4">
-                                <a href="#" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
-                                    in
+                                <a href="#" title="LinkedIn" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all font-bold">
+                                    IN
                                 </a>
-                                <a href="#" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
-                                    𝕏
+                                <a href="#" title="Facebook" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all font-bold">
+                                    FB
                                 </a>
-                                <a href="#" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
-                                    GH
+                                <a href="#" title="Instagram" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all font-bold">
+                                    IG
                                 </a>
                             </div>
                         </div>
