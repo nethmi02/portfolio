@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -87,13 +87,13 @@ export default function Contact() {
                         <div>
                             <h3 className="text-2xl font-bold mb-6 text-white">Follow Me</h3>
                             <div className="flex gap-4">
-                                <a href="#" title="LinkedIn" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
+                                <a href="https://www.linkedin.com/in/nethmi02/" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
                                     <FaLinkedin />
                                 </a>
-                                <a href="#" title="Facebook" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
-                                    <FaFacebook />
+                                <a href="https://github.com/nethmi02" target="_blank" rel="noopener noreferrer" title="GitHub" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
+                                    <FaGithub />
                                 </a>
-                                <a href="#" title="Instagram" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
+                                <a href="https://www.instagram.com/sathruwaniii?igsh=d2NldnpnazNzN3Zp&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
                                     <FaInstagram />
                                 </a>
                             </div>
