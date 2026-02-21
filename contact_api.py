@@ -15,7 +15,7 @@ app = FastAPI(title="Portfolio Contact API")
 # Allow requests from the Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=["*"],   # allows all origins including Vercel
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
