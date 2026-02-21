@@ -104,7 +104,9 @@ async def contact(form: ContactForm):
 
     # --- Send via Gmail SMTP ---
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.ehlo()
+            server.starttls()
             server.login(smtp_user, smtp_password)
             server.sendmail(smtp_user, receiver, msg.as_string())
         return {"success": True, "message": "Message sent successfully!"}
