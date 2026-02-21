@@ -1,8 +1,5 @@
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-
+import resend
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
@@ -12,10 +9,9 @@ load_dotenv()
 
 app = FastAPI(title="Portfolio Contact API")
 
-# Allow requests from the Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # allows all origins including Vercel
+    allow_origins=["*"],
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
@@ -35,34 +31,17 @@ def health():
 
 @app.post("/contact")
 async def contact(form: ContactForm):
-    smtp_user = os.environ.get("EMAIL_SENDER")
-    smtp_password = os.environ.get("EMAIL_PASSWORD")
+    api_key = os.environ.get("RESEND_API_KEY")
     receiver = os.environ.get("EMAIL_RECEIVER")
 
-    if not smtp_user or not smtp_password or not receiver:
+    if not api_key or not receiver:
         raise HTTPException(
             status_code=500,
-            detail="Email configuration is missing. Check server .env file.",
+            detail="Email configuration is missing. Check server environment variables.",
         )
 
-    # --- Build the email ---
-    msg = MIMEMultipart("alternative")
-    msg["From"] = f"{form.name} (via Portfolio) <{smtp_user}>"
-    msg["To"] = receiver
-    msg["Reply-To"] = f"{form.name} <{form.email}>"
-    msg["Subject"] = f"[Portfolio] {form.subject}"
+    resend.api_key = api_key
 
-    # Plain-text fallback
-    plain_body = (
-        f"You received a new message from your portfolio contact form.\n\n"
-        f"Name:    {form.name}\n"
-        f"Email:   {form.email}\n"
-        f"Subject: {form.subject}\n\n"
-        f"Message:\n{form.message}\n\n"
-        f"---\nReply directly to this email to respond to {form.name}."
-    )
-
-    # HTML version (nice formatting)
     html_body = f"""
     <html>
       <body style="font-family:Arial,sans-serif;background:#f4f4f7;padding:30px;">
@@ -99,21 +78,24 @@ async def contact(form: ContactForm):
     </html>
     """
 
-    msg.attach(MIMEText(plain_body, "plain"))
-    msg.attach(MIMEText(html_body, "html"))
+    plain_body = (
+        f"New message from your portfolio contact form.\n\n"
+        f"Name:    {form.name}\n"
+        f"Email:   {form.email}\n"
+        f"Subject: {form.subject}\n\n"
+        f"Message:\n{form.message}"
+    )
 
-    # --- Send via Gmail SMTP ---
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(smtp_user, smtp_password)
-            server.sendmail(smtp_user, receiver, msg.as_string())
+        params = {
+            "from": f"{form.name} (via Portfolio) <onboarding@resend.dev>",
+            "to": [receiver],
+            "reply_to": f"{form.name} <{form.email}>",
+            "subject": f"[Portfolio] {form.subject}",
+            "html": html_body,
+            "text": plain_body,
+        }
+        resend.Emails.send(params)
         return {"success": True, "message": "Message sent successfully!"}
-    except smtplib.SMTPAuthenticationError:
-        raise HTTPException(
-            status_code=500,
-            detail="Gmail authentication failed. Check EMAIL_SENDER and EMAIL_PASSWORD in .env.",
-        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
