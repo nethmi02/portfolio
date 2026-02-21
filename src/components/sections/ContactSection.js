@@ -9,17 +9,38 @@ export default function Contact() {
         subject: '',
         message: ''
     });
+    const [status, setStatus] = useState('idle'); // idle | loading | success | error
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Form submitted! (This is a demo - no actual submission)');
+        setStatus('loading');
+        setErrorMsg('');
+
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const res = await fetch(`${apiUrl}/contact`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.detail || 'Something went wrong. Please try again.');
+            }
+
+            setStatus('success');
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        } catch (err) {
+            setStatus('error');
+            setErrorMsg(err.message);
+        }
     };
 
     return (
@@ -83,6 +104,23 @@ export default function Contact() {
 
                     {/* Contact Form */}
                     <div className="bg-purple-950/30 border border-purple-800/30 p-8 rounded-xl">
+
+                        {/* Success banner */}
+                        {status === 'success' && (
+                            <div className="mb-6 flex items-start gap-3 bg-green-900/40 border border-green-500/40 text-green-300 px-4 py-3 rounded-lg text-sm">
+                                <span className="text-lg"></span>
+                                <p>Message sent! I&apos;ll get back to you as soon as possible.</p>
+                            </div>
+                        )}
+
+                        {/* Error banner */}
+                        {status === 'error' && (
+                            <div className="mb-6 flex items-start gap-3 bg-red-900/40 border border-red-500/40 text-red-300 px-4 py-3 rounded-lg text-sm">
+                                <span className="text-lg">❌</span>
+                                <p>{errorMsg || 'Something went wrong. Please try again later.'}</p>
+                            </div>
+                        )}
+
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-white font-semibold mb-2">
@@ -95,7 +133,8 @@ export default function Contact() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all placeholder-gray-500"
+                                    disabled={status === 'loading'}
+                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all placeholder-gray-500 disabled:opacity-50"
                                     placeholder="Your Name"
                                 />
                             </div>
@@ -110,7 +149,8 @@ export default function Contact() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all placeholder-gray-500"
+                                    disabled={status === 'loading'}
+                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all placeholder-gray-500 disabled:opacity-50"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
@@ -125,7 +165,8 @@ export default function Contact() {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all placeholder-gray-500"
+                                    disabled={status === 'loading'}
+                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all placeholder-gray-500 disabled:opacity-50"
                                     placeholder="What's this about?"
                                 />
                             </div>
@@ -140,15 +181,27 @@ export default function Contact() {
                                     onChange={handleChange}
                                     required
                                     rows="5"
-                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all resize-none placeholder-gray-500"
+                                    disabled={status === 'loading'}
+                                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-700/50 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 outline-none transition-all resize-none placeholder-gray-500 disabled:opacity-50"
                                     placeholder="Your message here..."
                                 ></textarea>
                             </div>
                             <button
                                 type="submit"
-                                className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-lg font-semibold hover:shadow-xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
+                                disabled={status === 'loading'}
+                                className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-lg font-semibold hover:shadow-xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 disabled:opacity-60 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
-                                Send Message
+                                {status === 'loading' ? (
+                                    <>
+                                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                                        </svg>
+                                        Sending...
+                                    </>
+                                ) : (
+                                    'Send Message'
+                                )}
                             </button>
                         </form>
                     </div>
