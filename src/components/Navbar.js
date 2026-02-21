@@ -10,10 +10,7 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-md border-b border-purple-900/50 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-300 bg-clip-text text-transparent">
-                        Portfolio
-                    </div>
+                <div className="flex justify-center items-center h-16">
                     <div className="hidden md:flex space-x-8">
                         <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-purple-400 transition-colors">
                             Home

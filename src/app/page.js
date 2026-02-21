@@ -1,6 +1,5 @@
 'use client';
 
-import Navbar from '../components/Navbar';
 import HomeSection from '../components/sections/HomeSection';
 import AboutSection from '../components/sections/AboutSection';
 import ResumeSection from '../components/sections/ResumeSection';
@@ -11,7 +10,6 @@ import ContactSection from '../components/sections/ContactSection';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       <HomeSection />
       <AboutSection />
       <ResumeSection />
