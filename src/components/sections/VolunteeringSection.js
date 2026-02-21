@@ -51,15 +51,17 @@ export default function Volunteering() {
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
                         Volunteering & Leadership
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-400 mx-auto"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-400 mx-auto mb-4"></div>
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                        Building communities and driving technical initiatives through student organizations.
+                    </p>
                 </div>
                 <div className="flex flex-col md:flex-row md:gap-12">
                     {/* Left: Club Info & Timeline */}
                     <div className="md:w-5/12 w-full mb-12 md:mb-0">
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md">
-                                {/* Placeholder for club logo, replace src if you have logo */}
-                                <span className="text-purple-700 text-2xl font-bold">IEEE</span>
+                                        <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-md overflow-hidden">
+                                            <img src="/ieee_sb.png" alt="IEEE Student Branch UCSC Logo" className="object-contain w-14 h-14" />
                             </div>
                             <span className="text-2xl font-bold text-white">IEEE Student Branch<br className="hidden md:block"/> of UCSC</span>
                         </div>
