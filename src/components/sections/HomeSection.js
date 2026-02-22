@@ -5,11 +5,6 @@ export default function Home() {
         <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-purple-950/25 to-black relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute inset-0 pointer-events-none">
-                {/* Large subtle logo background */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[0.05] animate-pulse">
-                    <img src="/logo.png" alt="" className="w-full h-full object-contain filter invert grayscale" />
-                </div>
-
                 {/* Modern blur blobs */}
                 <div className="absolute top-1/4 -left-20 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] animate-float-1"></div>
                 <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] animate-float-2"></div>

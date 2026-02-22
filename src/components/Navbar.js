@@ -60,8 +60,8 @@ export default function Navbar() {
                         if (item.id === 'logo') {
                             return (
                                 <div key="logo" className="flex-shrink-0 px-4 group">
-                                    <div className="w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform cursor-pointer" onClick={() => scrollToSection('home')}>
-                                        <img src="/logo.png" alt="Logo" className="w-18 h-18 object-contain" />
+                                    <div className="w-12 h-12 flex items-center justify-center transform group-hover:scale-110 transition-transform cursor-pointer" onClick={() => scrollToSection('home')}>
+                                        <img src="/logo.png" alt="Logo" className="w-10 h-10 object-contain" />
                                     </div>
                                 </div>
                             );
