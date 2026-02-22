@@ -16,9 +16,15 @@ export default function About() {
                     <div className="relative">
                         <div className="relative w-full max-w-md mx-auto">
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-400 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
-                            <div className="relative bg-gradient-to-br from-purple-900/50 to-purple-950/50 border border-purple-700/50 rounded-2xl p-8 backdrop-blur-sm">
-                                <div className="w-64 h-64 mx-auto bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-8xl">
-                                    👨‍💻
+                            <div className="relative bg-gradient-to-br from-purple-900/50 to-purple-950/50 border border-purple-700/50 rounded-2xl p-4 backdrop-blur-sm overflow-hidden">
+                                <div className="w-80 h-80 mx-auto relative z-10 rounded-xl overflow-hidden shadow-2xl">
+                                    <img
+                                        src="/me.png"
+                                        alt="Nethmi Hapuarachchi"
+                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    />
+                                    {/* Overlay Gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent pointer-events-none"></div>
                                 </div>
                             </div>
                         </div>
