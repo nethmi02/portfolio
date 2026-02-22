@@ -21,7 +21,7 @@ export default function Home() {
       <footer className="bg-gradient-to-r from-black via-purple-950 to-black border-t border-purple-900/30 py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400">
-            © 2026 Your Name. Built with <span className="text-purple-400">Next.js</span> & <span className="text-purple-400">Tailwind CSS</span>
+            © 2026 HANS Hapuarachchi
           </p>
         </div>
       </footer>

@@ -45,7 +45,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="min-h-screen bg-gradient-to-br from-black via-purple-950/25 to-black py-20">
+        <section id="contact" className="min-h-screen bg-gradient-to-br from-black via-purple-950/25 to-black pt-24 pb-24">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
