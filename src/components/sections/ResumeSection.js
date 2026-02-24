@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Reveal from '../animations/Reveal';
 import {
     SiPython, SiScala, SiMysql, SiCplusplus, SiC, SiPhp, SiDart,
     SiNodedotjs, SiNestjs, SiLaravel, SiHtml5, SiCss3, SiJavascript,
@@ -118,15 +119,15 @@ export default function Resume() {
     return (
         <section id="resume" className="min-h-screen bg-gradient-to-br from-black via-purple-950/25 to-black pt-24 pb-24">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <Reveal className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
                         Resume
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-400 mx-auto"></div>
-                </div>
+                </Reveal>
 
                 {/* Skills Section */}
-                <div className="mb-16">
+                <Reveal delay={0.2} className="mb-16">
                     <h3 className="text-3xl font-bold mb-8 text-white text-center">Skills & Technologies</h3>
                     <div className="relative w-full max-w-4xl mx-auto h-[450px] flex items-center justify-center">
 
@@ -214,10 +215,10 @@ export default function Resume() {
                             })}
                         </div>
                     </div>
-                </div>
+                </Reveal>
 
                 {/* Experience Section */}
-                <div className="max-w-3xl mx-auto px-4 mb-24">
+                <Reveal delay={0.2} className="max-w-3xl mx-auto px-4 mb-24">
                     <h3 className="text-3xl font-bold mb-12 text-white text-center">Work Experience</h3>
 
                     <div
@@ -252,10 +253,10 @@ export default function Resume() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </Reveal>
 
                 {/* Education Section */}
-                <div className="max-w-3xl mx-auto px-4">
+                <Reveal delay={0.2} className="max-w-3xl mx-auto px-4">
                     <h3 className="text-3xl font-bold mb-12 text-white text-center">Education</h3>
 
                     <div
@@ -290,7 +291,7 @@ export default function Resume() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </Reveal>
             </div>
         </section>
     );

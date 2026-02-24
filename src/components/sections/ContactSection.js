@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import Reveal from '../animations/Reveal';
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ export default function Contact() {
     return (
         <section id="contact" className="min-h-screen bg-gradient-to-br from-black via-purple-950/25 to-black pt-24 pb-24">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <Reveal className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
                         Get In Touch
                     </h2>
@@ -55,11 +56,11 @@ export default function Contact() {
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Have a question or want to work together? Feel free to reach out!
                     </p>
-                </div>
+                </Reveal>
 
                 <div className="grid md:grid-cols-2 gap-12">
                     {/* Contact Information */}
-                    <div className="space-y-8">
+                    <Reveal delay={0.2} className="space-y-8">
                         <div>
                             <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
                             <div className="space-y-6">
@@ -98,10 +99,10 @@ export default function Contact() {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
 
                     {/* Contact Form */}
-                    <div className="bg-purple-950/30 border border-purple-800/30 p-8 rounded-xl">
+                    <Reveal delay={0.4} className="bg-purple-950/30 border border-purple-800/30 p-8 rounded-xl">
 
                         {/* Success banner */}
                         {status === 'success' && (
@@ -202,7 +203,7 @@ export default function Contact() {
                                 )}
                             </button>
                         </form>
-                    </div>
+                    </Reveal>
                 </div>
             </div>
         </section>

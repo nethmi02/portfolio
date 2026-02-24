@@ -1,19 +1,21 @@
 'use client';
 
+import Reveal from '../animations/Reveal';
+
 export default function About() {
     return (
         <section id="about" className="bg-gradient-to-br from-black via-purple-950/25 to-black pt-20 pb-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <Reveal className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
                         About Me
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-400 mx-auto"></div>
-                </div>
+                </Reveal>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Profile Image */}
-                    <div className="relative">
+                    <Reveal delay={0.2} className="relative">
                         <div className="relative w-full max-w-md mx-auto">
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-400 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
                             <div className="relative bg-gradient-to-br from-purple-900 to-purple-950 border border-purple-700/50 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden">
@@ -28,10 +30,10 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
 
                     {/* About Text */}
-                    <div className="space-y-6">
+                    <Reveal delay={0.4} className="space-y-6">
                         <h3 className="text-3xl font-bold text-white">Hello! I'm a Software Developer</h3>
                         <p className="text-gray-300 leading-relaxed text-lg">
                             I am a Software Developer driven by a curiosity for technical precision and efficient system design. I specialize in building scalable, user-focused digital solutions and thrive in collaborative, fast-paced environments.
@@ -49,7 +51,7 @@ export default function About() {
                                 Download CV
                             </a>
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </div>
         </section>

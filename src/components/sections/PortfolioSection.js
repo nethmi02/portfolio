@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import Reveal from '../animations/Reveal';
 export default function Portfolio() {
     const [currentPage, setCurrentPage] = useState(1);
     const projectsPerPage = 6;
@@ -9,56 +9,56 @@ export default function Portfolio() {
             title: "RUA Tours",
             description: "A full-featured tourism management platform for a premium Sri Lankan tour operator.",
             tech: ["PHP", "Laravel", "React.js", "JavaScript", "Tailwind CSS", "Sanity"],
-            image: "",
+            image: "/rua.png",
         },
         {
             title: "Noots",
             description: "Dynamic music-centric social media platform integrated with Spotify, users to interact with music content.",
             tech: ["NestJS", "Node.js", "Flutter", "Spotify API", "MongoDB"],
-            image: "",
+            image: "/noot.png",
         },
         {
             title: "Musicia",
             description: "Innovative web platform tailored for event planners, performers, and service providers across Sri Lanka.",
             tech: ["PHP", "HTML", "CSS", "JavaScript", "MVC", "MySQL"],
-            image: " ",
+            image: "/musicia.png",
         },
         {
             title: "Slice-of-Sweet",
             description: "Online cake ordering system designed for special occasions with a smooth ordering and customisation flow.",
             tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
-            image: "",
+            image: "/cake kade.png",
         },
         {
             title: "Movie Recommendation System",
             description: "Content-based recommendation system using NLP to suggest top 10 similar movies based on user input.",
             tech: ["Python", "Pandas", "NumPy", "Scikit-learn"],
-            image: "",
+            image: "/movie.png",
         },
         {
             title: "Safe Rider",
             description: "IoT-based wearable system designed to enhance motorcycle safety with automatic emergency response using LSTM models.",
             tech: ["Python", "TensorFlow", "Arduino", "GPS", "Arduino", "sensors"],
-            image: "",
+            image: "/helmet.png",
         },
         {
             title: "Meme Virality Predictor",
             description: "Interactive web application leveraging data analysis to predict the potential virality of memes.",
             tech: ["Python", "Streamlit", "JSON"],
-            image: "",
+            image: "/meme.png",
         },
         {
             title: "Shards of Dawn",
             description: "A 2D multiplayer platformer telling the story of four bearers of light working together to restore a shattered realm.",
             tech: ["Unity", "C#"],
-            image: "",
+            image: "/game.png",
         },
     ];
 
     return (
         <section id="portfolio" className="min-h-screen bg-gradient-to-br from-black via-purple-950/25 to-black py-20">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <Reveal className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
                         Portfolio
                     </h2>
@@ -66,29 +66,40 @@ export default function Portfolio() {
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Here are some of my recent projects that showcase my skills and expertise
                     </p>
-                </div>
+                </Reveal>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                     {projects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage).map((project, index) => (
-                        <div
-                            key={index}
-                            className="bg-black/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-purple-500/30 hover:bg-purple-500/5 transition-all duration-500 group transform hover:-translate-y-2 flex flex-col h-full"
-                        >
-                            <div className="h-48 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center text-7xl group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                                {project.image}
-                            </div>
-                            <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
-                                <p className="text-gray-400 mb-6 text-sm leading-relaxed">{project.description}</p>
-                                <div className="flex flex-wrap gap-2 mt-auto pt-2">
-                                    {project.tech.map((tech, idx) => (
-                                        <span key={idx} className="px-3 py-1 bg-purple-900/30 border border-purple-500/20 text-purple-300 rounded-full text-xs font-medium">
-                                            {tech}
+                        <Reveal key={index} delay={index * 0.1} className="h-full">
+                            <div
+                                className="bg-black/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-purple-500/30 hover:bg-purple-500/5 transition-all duration-500 group transform hover:-translate-y-2 flex flex-col h-full"
+                            >
+                                <div className="h-64 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center overflow-hidden flex-shrink-0">
+                                    {project.image && project.image.startsWith('/') ? (
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    ) : (
+                                        <span className="text-7xl group-hover:scale-110 transition-transform duration-500">
+                                            {project.image || ""}
                                         </span>
-                                    ))}
+                                    )}
+                                </div>
+                                <div className="p-6 flex flex-col flex-1">
+                                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
+                                    <p className="text-gray-400 mb-6 text-sm leading-relaxed">{project.description}</p>
+                                    <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                                        {project.tech.map((tech, idx) => (
+                                            <span key={idx} className="px-3 py-1 bg-purple-900/30 border border-purple-500/20 text-purple-300 rounded-full text-xs font-medium">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Reveal>
                     ))}
                 </div>
 
