@@ -85,9 +85,9 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="mt-12">
                             <h3 className="text-2xl font-bold mb-6 text-white">Follow Me</h3>
-                            <div className="flex gap-4">
+                            <div className="flex flex-wrap gap-4">
                                 <a href="https://www.linkedin.com/in/nethmi02/" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-110 transition-all">
                                     <FaLinkedin />
                                 </a>

@@ -37,15 +37,15 @@ export default function Home() {
                 />
             </div>
 
-            <Reveal className="relative inline-block z-10 w-full" delay={0.1}>
+            <Reveal className="relative inline-block z-10 w-full px-4 md:px-0" delay={0.1}>
                 <div className="flex flex-col items-center justify-center relative">
-                    <h1 className="text-white text-8xl lg:text-9xl font-extrabold tracking-widest text-center select-none drop-shadow-[0_0_30px_rgba(168,85,247,0.2)]">PORTFOLIO</h1>
+                    <h1 className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-widest text-center select-none drop-shadow-[0_0_30px_rgba(168,85,247,0.2)]">PORTFOLIO</h1>
 
                     {/* Decorative dot */}
-                    <span className="absolute bg-purple-400 rounded-full w-6 h-6 lg:w-8 lg:h-8 left-[74%] top-[-18%] lg:left-[74%] lg:top-[-10%] shadow-lg shadow-purple-500/50 animate-bounce"></span>
+                    <span className="absolute bg-purple-400 rounded-full w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 left-[74%] top-[-25%] sm:top-[-18%] lg:left-[74%] lg:top-[-10%] shadow-lg shadow-purple-500/50 animate-bounce"></span>
 
                     {/* Glowing underline effect */}
-                    <div className="w-[40rem] max-w-full h-40 relative mt-2">
+                    <div className="w-[80vw] sm:w-[30rem] md:w-[40rem] max-w-full h-20 sm:h-32 md:h-40 relative mt-2 md:mt-4">
                         {/* Gradients */}
                         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-[2px] w-3/4 blur-sm mx-auto z-20" />
                         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px w-3/4 mx-auto z-20" />
@@ -71,12 +71,12 @@ export default function Home() {
 
 
             {/* Footer info bottom left */}
-            <Reveal className="absolute left-0 bottom-0 p-6 ml-16 z-20" delay={0.2} yOffset={20}>
-                <span className="text-white text-lg font-semibold border-l-2 border-purple-500 pl-4 tracking-wider uppercase opacity-80">Nethmi Hapuarachchi</span>
+            <Reveal className="hidden sm:block absolute left-0 bottom-0 p-6 ml-4 md:ml-16 z-20" delay={0.2} yOffset={20}>
+                <span className="text-white text-sm md:text-lg font-semibold border-l-2 border-purple-500 pl-4 tracking-wider uppercase opacity-80">Nethmi Hapuarachchi</span>
             </Reveal>
 
-            <Reveal className="absolute right-0 bottom-0 p-6 mr-16 z-20" delay={0.2} yOffset={20}>
-                <span className="text-white text-lg font-semibold opacity-60 courier tracking-widest">{new Date().getFullYear()}</span>
+            <Reveal className="hidden sm:block absolute right-0 bottom-0 p-6 mr-4 md:mr-16 z-20" delay={0.2} yOffset={20}>
+                <span className="text-white text-sm md:text-lg font-semibold opacity-60 courier tracking-widest">{new Date().getFullYear()}</span>
             </Reveal>
         </section>
     );
