@@ -19,11 +19,11 @@ export default function About() {
                         <div className="relative w-full max-w-md mx-auto">
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-400 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
                             <div className="relative bg-gradient-to-br from-purple-900 to-purple-950 border border-purple-700/50 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden">
-                                <div className="w-full h-[440px] mx-auto relative z-10 rounded-xl overflow-hidden bg-purple-600/5">
+                                <div tabIndex="0" className="w-full h-[440px] mx-auto relative z-10 rounded-xl overflow-hidden bg-purple-600/5 group outline-none cursor-pointer">
                                     <img
                                         src="/me.png"
                                         alt="Nethmi Hapuarachchi"
-                                        className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 transform -translate-y-6 scale-110"
+                                        className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-focus:grayscale-0 group-active:grayscale-0 transition-all duration-700 transform -translate-y-6 scale-110"
                                     />
                                     {/* Subtle Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-purple-950/40 to-transparent pointer-events-none"></div>
