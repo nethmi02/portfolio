@@ -1,4 +1,5 @@
-'use client';
+// Server component — 'use client' removed so Google can crawl the HTML directly.
+// Each child section has its own 'use client' directive where needed.
 
 import HomeSection from '../components/sections/HomeSection';
 import AboutSection from '../components/sections/AboutSection';
