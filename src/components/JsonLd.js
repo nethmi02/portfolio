@@ -6,7 +6,7 @@ export default function JsonLd() {
     url: "https://nethmihapuarachchi.com",
     jobTitle: "Software Engineer & Developer",
     description:
-      "Software engineer and developer passionate about building beautiful, functional web and mobile applications.",
+      "Software engineer and developer passionate about designing efficient, scalable, and user-focused software solutions",
     sameAs: [
       "https://github.com/nethmiH",
       "https://www.linkedin.com/in/nethmi-hapuarachchi",

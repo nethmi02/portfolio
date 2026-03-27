@@ -20,7 +20,7 @@ export const metadata = {
     template: "%s | Nethmi Hapuarachchi",
   },
   description:
-    "Nethmi Hapuarachchi is a software engineer and developer passionate about building beautiful, functional web and mobile applications. Explore her portfolio, projects, and experience.",
+    "Nethmi Hapuarachchi is a software engineer and developer passionate about designing efficient, scalable, and user-focused software solutions, and I adapt quickly to new tools and technologies in fast-paced environments. Explore her portfolio, projects, and experience.",
   keywords: [
     "Nethmi Hapuarachchi",
     "software engineer",
