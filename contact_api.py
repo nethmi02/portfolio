@@ -1,5 +1,8 @@
 import os
-import resend
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
@@ -31,16 +34,15 @@ def health():
 
 @app.post("/contact")
 async def contact(form: ContactForm):
-    api_key = os.environ.get("RESEND_API_KEY")
+    sender = os.environ.get("EMAIL_SENDER")
+    password = os.environ.get("EMAIL_PASSWORD")
     receiver = os.environ.get("EMAIL_RECEIVER")
 
-    if not api_key or not receiver:
+    if not sender or not password or not receiver:
         raise HTTPException(
             status_code=500,
             detail="Email configuration is missing. Check server environment variables.",
         )
-
-    resend.api_key = api_key
 
     html_body = f"""
     <html>
@@ -87,15 +89,24 @@ async def contact(form: ContactForm):
     )
 
     try:
-        params = {
-            "from": f"{form.name} (via Portfolio) <onboarding@resend.dev>",
-            "to": [receiver],
-            "reply_to": f"{form.name} <{form.email}>",
-            "subject": f"[Portfolio] {form.subject}",
-            "html": html_body,
-            "text": plain_body,
-        }
-        resend.Emails.send(params)
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = f"[Portfolio] {form.subject}"
+        msg["From"] = sender
+        msg["To"] = receiver
+        msg["Reply-To"] = f"{form.name} <{form.email}>"
+
+        msg.attach(MIMEText(plain_body, "plain"))
+        msg.attach(MIMEText(html_body, "html"))
+
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(sender, password)
+            server.sendmail(sender, receiver, msg.as_string())
+
         return {"success": True, "message": "Message sent successfully!"}
+    except smtplib.SMTPAuthenticationError:
+        raise HTTPException(
+            status_code=500,
+            detail="Email authentication failed. Check your Gmail App Password in the server environment.",
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
