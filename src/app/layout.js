@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://nethmihapuarachchi.com"),
+  metadataBase: new URL("https://www.nethmihapuarachchi.com"),
   title: {
     default: "Nethmi Hapuarachchi | Software Engineer & Developer",
     template: "%s | Nethmi Hapuarachchi",
@@ -31,14 +31,14 @@ export const metadata = {
     "Next.js",
     "Sri Lanka",
   ],
-  authors: [{ name: "Nethmi Hapuarachchi", url: "https://nethmihapuarachchi.com" }],
+  authors: [{ name: "Nethmi Hapuarachchi", url: "https://www.nethmihapuarachchi.com" }],
   creator: "Nethmi Hapuarachchi",
   alternates: {
-    canonical: "https://nethmihapuarachchi.com",
+    canonical: "https://www.nethmihapuarachchi.com",
   },
   openGraph: {
     type: "website",
-    url: "https://nethmihapuarachchi.com",
+    url: "https://www.nethmihapuarachchi.com",
     title: "Nethmi Hapuarachchi | Software Engineer & Developer",
     description:
       "Explore the portfolio of Nethmi Hapuarachchi — software engineer specialising in modern web and mobile development.",

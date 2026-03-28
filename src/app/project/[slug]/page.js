@@ -31,15 +31,15 @@ export default function ProjectDetailPage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Back button */}
-                <button
-                    onClick={() => router.back()}
+                <Link
+                    href="/#portfolio"
                     className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-purple-300 transition-colors duration-200 mb-10 group"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                     Back to Portfolio
-                </button>
+                </Link>
 
                 {/* Image Gallery */}
                 <div className="mb-10">
