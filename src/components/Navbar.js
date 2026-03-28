@@ -2,11 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState('home');
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    
+    const pathname = usePathname();
+    const router = useRouter();
 
     const navItems = [
         { name: 'Home', id: 'home' },
@@ -21,6 +25,8 @@ export default function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
+
+            if (pathname !== '/') return;
 
             const sections = navItems
                 .filter(item => item.id !== 'logo')
@@ -41,10 +47,17 @@ export default function Navbar() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [pathname]);
 
     const scrollToSection = (id) => {
         if (id === 'logo') return;
+        
+        if (pathname !== '/') {
+            router.push(`/#${id}`);
+            setIsOpen(false);
+            return;
+        }
+
         const element = document.getElementById(id);
         if (element) {
             window.scrollTo({

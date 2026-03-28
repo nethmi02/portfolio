@@ -44,20 +44,20 @@ export default function ProjectDetailPage() {
                 {/* Image Gallery */}
                 <div className="mb-10">
                     {/* Main Image */}
-                    <div className="w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 relative">
+                    <div className="w-full aspect-video sm:aspect-[16/9] lg:aspect-[16/9] max-h-[500px] rounded-2xl overflow-hidden bg-black/50 relative border border-white/5">
                         {images[activeImg] && images[activeImg].startsWith('/') ? (
                             <img
                                 key={activeImg}
                                 src={images[activeImg]}
                                 alt={`${project.title} screenshot ${activeImg + 1}`}
-                                className="w-full h-full object-cover object-top scale-105 transition-opacity duration-300"
+                                className="w-full h-full object-cover object-center transition-opacity duration-300"
                             />
                         ) : (
                             <div className="w-full h-full flex items-center justify-center text-9xl">
                                 {images[activeImg] || ''}
                             </div>
                         )}
-                        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
                         {/* Image counter badge */}
                         {images.length > 1 && (

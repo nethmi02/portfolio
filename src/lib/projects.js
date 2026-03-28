@@ -17,8 +17,8 @@ export const projects = [
         ],
         tech: ["PHP", "Laravel", "React.js", "JavaScript", "Tailwind CSS", "Sanity"],
         link: "https://ruatourssl.com/",
-        image: "/rua.png",
-        images: ["/rua.png"],
+        image: "/rua.jpeg",
+        images: ["/rua.jpeg"],
     },
     {
         slug: "noots",
@@ -65,7 +65,7 @@ export const projects = [
         tech: ["PHP", "HTML", "CSS", "JavaScript", "MVC", "MySQL"],
         repo: "https://github.com/Sachith-AB/Music-Event-Management-System.git",
         image: "/musicia.png",
-        images: ["/musicia_page.jpg"],
+        images: ["/musicia.png"],
     },
     {
         slug: "slice-of-sweet",
@@ -151,6 +151,7 @@ export const projects = [
         image: "/game.png",
         images: ["/game.png"],
     },
+    /*
     {
         slug: "finance-tracker",
         title: "Finance Tracker",
@@ -173,4 +174,5 @@ export const projects = [
         image: "/finance.png",
         images: ["/finance.png"],
     }
+    */
 ];
