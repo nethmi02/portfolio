@@ -91,7 +91,7 @@ export default function Resume() {
             title: "Intern Software Engineer",
             company: "Dialog Axiata PLC",
             period: "December 2025 - Present",
-            description: "Currently contributing to an analytics-based automation system for new network cell deployment at Dialog Axiata PLC.",
+            description: "Contributed to automation of 4G/5G network acceptance workflows, improving efficiency in telecom operations. Developed and monitored MIMO cell load analysis tools across multi-vendor network environments. Supported full-stack web development and API integration for telecom data management platforms.",
         },
         {
             title: "Full Stack Developer",
