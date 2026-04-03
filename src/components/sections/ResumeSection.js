@@ -90,6 +90,7 @@ export default function Resume() {
         {
             title: "Intern Software Engineer",
             company: "Dialog Axiata PLC",
+            team: "Network Analysis and Automation",
             period: "December 2025 - Present",
             description: "Contributed to automation of 4G/5G network acceptance workflows, improving efficiency in telecom operations. Improved and monitored MIMO cell load analysis workflows across multi-vendor network environments by refining block and unblock logic. Supported full-stack web development and API integration for telecom data management platforms.",
         },
@@ -246,7 +247,12 @@ export default function Resume() {
                                             <FaCalendarAlt className="text-xs" />
                                             <span className="text-sm font-medium">{job.period}</span>
                                         </div>
-                                        <span className="text-purple-400 font-medium text-lg md:text-right">{job.company}</span>
+                                        <div className="md:text-right">
+                                            <span className="block text-purple-400 font-medium text-lg">{job.company}</span>
+                                            {job.team && (
+                                                <span className="block text-purple-300 text-sm">Team: {job.team}</span>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                                 <p className="text-gray-400 text-sm leading-relaxed mt-3 text-justify">{job.description}</p>
