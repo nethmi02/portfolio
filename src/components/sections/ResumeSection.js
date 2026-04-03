@@ -106,7 +106,7 @@ export default function Resume() {
             degree: "B.Sc. in Computer Science",
             institution: "University of Colombo",
             period: "2023 - 2026",
-            description: "GPA: [ GPA] | [Degree Class]",
+            description: "GPA: 3.328",
         },
         {
             degree: "GCE Advanced Level",
